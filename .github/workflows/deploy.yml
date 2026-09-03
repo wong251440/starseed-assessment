@@ -25,6 +25,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: 整理 GitHub Pages 資源路徑
+        run: |
+          mv dist/client/starseed-assessment/_next dist/client/_next
+          rmdir dist/client/starseed-assessment
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
